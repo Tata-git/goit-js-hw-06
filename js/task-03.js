@@ -13,7 +13,7 @@ const images = [
   },
 ];
 const galleryRef = document.querySelector(".gallery");
-console.log(galleryRef);
+// console.log(galleryRef);
 
 images.forEach((image) => {
   const gallerySrc = image.url;
@@ -22,10 +22,15 @@ images.forEach((image) => {
   const galleryAlt = image.alt;
   // console.log(galleryAlt);
 
+  galleryRef.style.display = "flex";
+  galleryRef.style.justifyContent = "space-evenly";
+
   galleryRef.insertAdjacentHTML(
     "afterbegin",
     `<li class="img"> <img src="${gallerySrc}" alt="${galleryAlt}"  width="300px"  height="100%"></li>`
   );
+
 });
 
 console.log(galleryRef);
+
