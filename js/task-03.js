@@ -15,22 +15,14 @@ const images = [
 const galleryRef = document.querySelector(".gallery");
 // console.log(galleryRef);
 
-images.forEach((image) => {
-  const gallerySrc = image.url;
-  // console.log(gallerySrc);
+const list = images.map((image) => {
+  const galleryList = `<li class="img"> <img src="${image.url}" alt="${image.alt}"  width="300px"  height="100%"></li>`;
 
-  const galleryAlt = image.alt;
-  // console.log(galleryAlt);
-
-  galleryRef.style.display = "flex";
-  galleryRef.style.justifyContent = "space-evenly";
-
-  galleryRef.insertAdjacentHTML(
-    "afterbegin",
-    `<li class="img"> <img src="${gallerySrc}" alt="${galleryAlt}"  width="300px"  height="100%"></li>`
-  );
-
+  return galleryList;
 });
 
-console.log(galleryRef);
+galleryRef.insertAdjacentHTML("beforeend", list.join(""));
+galleryRef.style.display = "flex";
+galleryRef.style.justifyContent = "space-evenly";
 
+console.log(galleryRef);
